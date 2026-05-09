@@ -1,4 +1,8 @@
 export default eventHandler((event) => {
+  if (event.method === 'OPTIONS') {
+    return
+  }
+
   const token = getHeader(event, 'Authorization')?.replace(/^Bearer\s+/, '')
   if (event.path.startsWith('/api/') && token !== useRuntimeConfig(event).siteToken) {
     throw createError({

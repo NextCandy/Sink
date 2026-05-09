@@ -3,6 +3,10 @@ export default eventHandler((event) => {
     return
   }
 
+  if (event.path === '/api/set-link') {
+    return
+  }
+
   const token = getHeader(event, 'Authorization')?.replace(/^Bearer\s+/, '')
   if (event.path.startsWith('/api/') && token !== useRuntimeConfig(event).siteToken) {
     throw createError({

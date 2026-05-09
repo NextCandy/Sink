@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     safeBrowsingDoh: '', // Set to DoH URL to enable auto-detection, e.g. https://family.cloudflare-dns.com/dns-query
     public: {
       previewMode: '',
+      homeURL: process.env.NUXT_HOME_URL || 'https://ue.lc',
       slugDefaultLength: '6',
       kvBatchLimit: '50',
     },

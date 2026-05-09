@@ -2,6 +2,7 @@
 import 'vue-sonner/style.css'
 
 const { title, description, image } = useAppConfig()
+const { homeURL } = useRuntimeConfig().public
 const route = useRoute()
 const localeHead = useLocaleHead()
 
@@ -30,7 +31,7 @@ useHead(() => ({
   link: [
     {
       rel: 'canonical',
-      href: computed(() => `https://sink.cool${route.path}`),
+      href: computed(() => `${homeURL || 'https://ue.lc'}${route.path}`),
     },
     {
       rel: 'icon',

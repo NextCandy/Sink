@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import NumberFlow from '@number-flow/vue'
-import { Menu, Star, X } from 'lucide-vue-next'
+import { BookOpen, Mail, Menu, Star, X } from 'lucide-vue-next'
 import { GitHubIcon, TelegramIcon, XIcon } from 'vue3-simple-icons'
 
 const showMenu = ref(false)
-const { title, telegram, twitter, github } = useAppConfig()
+const { title, telegram, twitter, github, email, blog } = useAppConfig()
 const { rawStats } = useGithubStats()
 </script>
 
@@ -173,6 +173,34 @@ const { rawStats } = useGithubStats()
           </div>
 
           <div class="flex justify-center gap-6 text-sm">
+            <a
+              v-if="blog"
+              :href="blog"
+              target="_blank"
+              rel="noopener noreferrer"
+              :title="$t('layouts.footer.social.blog')"
+              aria-label="Blog"
+              class="
+                block text-muted-foreground
+                hover:text-primary
+              "
+            >
+              <BookOpen class="size-6" />
+            </a>
+            <a
+              v-if="email"
+              :href="email"
+              target="_blank"
+              rel="noopener noreferrer"
+              :title="$t('layouts.footer.social.email')"
+              aria-label="Email"
+              class="
+                block text-muted-foreground
+                hover:text-primary
+              "
+            >
+              <Mail class="size-6" />
+            </a>
             <a
               v-if="twitter"
               :href="twitter"
